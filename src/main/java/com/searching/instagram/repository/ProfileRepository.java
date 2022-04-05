@@ -17,4 +17,6 @@ public interface ProfileRepository extends JpaRepository<ProfileEntity, Long> {
 
     boolean existsByPhone(String phone);
 
+    boolean existsByUsername(String username);
+
 }
