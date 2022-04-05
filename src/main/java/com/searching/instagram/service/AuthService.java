@@ -35,7 +35,7 @@ public class AuthService {
         ProfileEntity entity = new ProfileEntity();
         entity.setFullName(dto.getFullName());
         entity.setBio(dto.getBio());
-        entity.setEmail(dto.getEmail());
+        entity.setWebsite(dto.getWebsite());
         entity.setUsername(dto.getUsername());
         entity.setPassword(password);
         entity.setPhone(dto.getPhone());
