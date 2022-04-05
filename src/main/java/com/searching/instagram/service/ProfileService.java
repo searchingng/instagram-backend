@@ -1,27 +1,50 @@
 package com.searching.instagram.service;
 
-import com.searching.instagram.config.jwt.JwtUtil;
-import com.searching.instagram.dto.AuthDTO;
 import com.searching.instagram.dto.ProfileDTO;
 import com.searching.instagram.entity.ProfileEntity;
+import com.searching.instagram.entity.enums.ProfileGender;
 import com.searching.instagram.entity.enums.ProfileStatus;
 import com.searching.instagram.entity.enums.Role;
-import com.searching.instagram.exceptions.UnauthorizedException;
+import com.searching.instagram.exceptions.ItemNotFoundException;
 import com.searching.instagram.repository.ProfileRepository;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.apache.commons.codec.digest.DigestUtils;
-import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.stereotype.Service;
 
 @Service
 @RequiredArgsConstructor
 @Slf4j
-public class AuthService {
+public class ProfileService {
 
     private final ProfileRepository profileRepository;
 
-    public ProfileDTO registration(ProfileDTO dto){
+    ProfileDTO toDto(ProfileEntity entity){
+        if (entity == null)
+            return null;
+
+        ProfileDTO dto = new ProfileDTO();
+        dto.setFullName(entity.getUsername());
+        dto.setUsername(entity.getUsername());
+        dto.setPassword(entity.getPassword());
+        dto.setPhone(entity.getPhone());
+        dto.setBirthDate(entity.getBirthDate());
+        dto.setEmail(entity.getEmail());
+        dto.setBio(entity.getBio());
+        dto.setWebsite(entity.getWebsite());
+
+        dto.setGender(entity.getGender());
+        dto.setStatus(entity.getStatus());
+        dto.setRole(entity.getRole());
+
+        dto.setId(entity.getId());
+        dto.setCreatedAt(entity.getCreatedAt());
+        dto.setUpdatedAt(entity.getUpdatedAt());
+
+        return dto;
+    }
+
+    public ProfileDTO createAdmin(ProfileDTO dto){
 
         if (profileRepository.existsByPhone(dto.getPhone())){
             log.warn("Phone is already registrated");
@@ -49,42 +72,28 @@ public class AuthService {
 
         entity.setGender(dto.getGender());
         entity.setStatus(ProfileStatus.ACTIVE);
-        entity.setRole(Role.USER_ROLE);
+        entity.setRole(Role.ADMIN_ROLE);
 
         profileRepository.save(entity);
         dto.setId(entity.getId());
         dto.setCreatedAt(entity.getCreatedAt());
         dto.setUpdatedAt(entity.getUpdatedAt());
         dto.setPassword(password);
-        log.debug("New User signed up: {}", dto);
+        log.debug("New ADMIN added: {}", dto);
         return dto;
     }
 
-    public ProfileDTO login(AuthDTO dto){
-
-        String password = DigestUtils.md5Hex(dto.getPassword());
-
-        ProfileEntity profile = profileRepository
-                .findByUsernameOrPhone(dto.getUsername(), dto.getUsername())
-                .orElseThrow(() -> {
-//                    log.debug("Error in Signing up Username or Password is not valid.");
-                    throw new UsernameNotFoundException("Username or Phone is not valid.");
-                });
-
-        if (!profile.getPassword().equals(password)){
-            throw new UnauthorizedException("Password is wrong!");
+    public ProfileEntity get(Long id){
+        if (id == null){
+            return null;
         }
-
-        String jwt = JwtUtil.generateJwt(profile.getId(), profile.getUsername());
-
-        ProfileDTO profileDTO = new ProfileDTO();
-                profileDTO.setFullName(profile.getFullName());
-                profileDTO.setUsername(profile.getUsername());
-                profileDTO.setJwt(jwt);
-
-        log.debug("One user signed in: {}", profile);
-        return profileDTO;
-
+        return profileRepository.findById(id)
+                .orElseThrow(() -> new ItemNotFoundException("Profile Not Found"));
     }
+
+    public ProfileDTO getById(Long id){
+        return toDto(get(id));
+    }
+
 
 }
