@@ -6,12 +6,14 @@ import com.searching.instagram.entity.LikeEntity;
 import com.searching.instagram.entity.PostEntity;
 import com.searching.instagram.entity.ProfileEntity;
 import com.searching.instagram.entity.enums.LikeType;
+import com.searching.instagram.exceptions.ItemNotFoundException;
 import com.searching.instagram.repository.LikeRepository;
 import com.searching.instagram.repository.ProfileRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.time.LocalDateTime;
+import java.util.List;
 import java.util.Optional;
 
 
@@ -32,10 +34,8 @@ public class LikeServise {
     public LikeDTO create(LikeDTO dto) {
 
         Optional<ProfileEntity> profile = profileRepository.findById(dto.getProfileId());
-
         PostEntity post = postService.get(dto.getPostId());
-
-        Optional<LikeEntity> entity = likeRepository.findByPostId(dto.getPostId());
+        Optional<LikeEntity> entity = likeRepository.findByPostIdAndProfileId(dto.getPostId(), dto.getProfileId());
 
         if (!entity.isPresent()) {
             LikeEntity likeEntity = new LikeEntity();
@@ -48,76 +48,40 @@ public class LikeServise {
             dto.setId(entity.get().getId());
             return dto;
         }
-
-        if (entity.get().getLikeType().equals(LikeType.EMPTY)) {
-            entity.get().setLikeType(LikeType.LIKE);
-        }
         if (entity.get().getLikeType().equals(LikeType.LIKE)) {
-            entity.get().setLikeType(LikeType.EMPTY);
+//            entity.get().setLikeType(LikeType.EMPTY);
+            deleteLikeOrDislike(entity.get().getId());
         }
 
-        likeOrDislikeRepository.save(entity);
-        dto.setId(entity.getId());
+        likeRepository.save(entity.get());
+        dto.setId(entity.get().getId());
         return dto;
     }
 
-    public void deleteLikeOrDislike(Integer id) {
-        get(id);
-        likeOrDislikeRepository.deleteById(id);
+    public void deleteLikeOrDislike(Long id) {
+        LikeEntity likeEntity = get(id);
+        likeRepository.delete(likeEntity);
     }
 
-    public LikeOrDislikeEntity get(Integer id) {
-        return likeOrDislikeRepository.findById(id).orElseThrow(() -> new ItemNotFoundException("Like Or Dislike not found"));
+    public LikeEntity get(Long id) {
+        return likeRepository.findById(id).orElseThrow(() -> new ItemNotFoundException("Like Or Dislike not found"));
     }
 
-    public LikeOrDislikeDTO updateArticle(LikeOrDislikeDTO dto, Integer id) {
-//        getProfileByEmail(email);
-//        Optional<ProfileEntity> entity = profileRepository.update(dto.getName(), dto.getSurname(),
-//                dto.getPswd(), dto.getLogin(), dto.getStatus(), email);
-//        ProfileDTO profile = new ProfileDTO();
-//        profile.setName(entity.get().getName());
-//        profile.setSurname(entity.get().getSurname());
-//        profile.setPswd(entity.get().getPswd());
-//        profile.setLogin(entity.get().getLogin());
-//        profile.setStatus(entity.get().getStatus());
-//        profile.setEmail(email);
-        Optional<LikeOrDislikeEntity> entit = likeOrDislikeRepository.findById(id);
-        if (!entit.isPresent()) {
-            throw new ItemNotFoundException("LikeOrDislike Not Found");
-        }
-        Optional<LikeOrDislikeEntity> entity = likeOrDislikeRepository.update(dto.getStatus(), dto.getProfileId(), dto.getActionId(), id);
 
-        LikeOrDislikeDTO dto1 = toDTO(entity.get());
-        return dto1;
+    public LikeDTO toDTO(LikeEntity entity) {
+        LikeDTO likeDTO = new LikeDTO();
+        likeDTO.setId(entity.getId());
+        likeDTO.setLikeType(entity.getLikeType());
+        likeDTO.setProfileId(entity.getProfile().getId());
+        likeDTO.setCreated_date(entity.getCreatedAt());
+        likeDTO.setPostId(entity.getPost().getId());
+        return likeDTO;
     }
 
-    public LikeDTO toDTO(LikeOrDislikeEntity entity) {
-        LikeDTOLikeOrDislikeRepository dislikeDTO = new LikeOrDislikeDTO();
-        dislikeDTO.setId(entity.getId());
-        dislikeDTO.setStatus(entity.getStatus());
-        dislikeDTO.setProfileId(entity.getProfileId().getId());
-        dislikeDTO.setActionId(entity.getActionId());
-        dislikeDTO.setCreated_date(entity.getCreatedDate());
-        return dislikeDTO;
-    }
-
-    public Integer getCountArticleId(Integer id) {
-        int count = likeOrDislikeRepository.findBycountByStatus(id);
+    public Integer getCountPostId(Long id) {
+        int count = likeRepository.findBycountByStatus(id);
         return count;
     }
 
-    public Integer getCountByCommentId(Integer id) {
-        int count = likeOrDislikeRepository.findBycountByCommentId(id);
-        return count;
-    }
 
-    public List<ArticleEntity> getarticlebyprofilelike(Integer id) {
-        List<ArticleEntity> count = likeOrDislikeRepository.getprofileLikeArticleList(id);
-        return count;
-    }
-
-    public List<ArticleEntity> getcommetbyprofilelike(Integer id) {
-        List<ArticleEntity> count = likeOrDislikeRepository.getprofileLikeArticleList(id);
-        return count;
-    }
 }

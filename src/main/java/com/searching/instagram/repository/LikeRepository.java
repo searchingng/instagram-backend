@@ -2,14 +2,18 @@ package com.searching.instagram.repository;
 
 
 import com.searching.instagram.entity.LikeEntity;
+import com.searching.instagram.entity.PostEntity;
 import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.data.jpa.repository.JpaSpecificationExecutor;
+import org.springframework.data.jpa.repository.Query;
+import org.springframework.data.repository.query.Param;
 import org.springframework.stereotype.Repository;
 
 import java.util.Optional;
 
 @Repository
-public interface LikeRepository extends JpaRepository<LikeEntity, Long> {
-    Optional<LikeEntity> findByPostId(Long id);
+public interface LikeRepository extends JpaRepository<LikeEntity, Long>, JpaSpecificationExecutor<LikeEntity> {
+    Optional<LikeEntity> findByPostIdAndProfileId(Long id,Long profileid);
 
     //    @Transactional
 //    @Modifying
@@ -22,8 +26,9 @@ public interface LikeRepository extends JpaRepository<LikeEntity, Long> {
 //    Optional<LikeOrDislikeEntity> update(@Param("status") LikeOrDislikeStatus status, @Param("profileId") Integer profileId,
 //                                         @Param("actionId") Integer actionId, @Param("id") Integer id);
 //
-//    @Query(value = "select status,count(status) from like_or_dislike where article_id=:id group by status ",nativeQuery = true)
-//    int findBycountByStatus(@Param("id") Integer id);
+    @Query(value = "select count(s.likeType) from LikeEntity s where s.post.id=:id")
+    int findBycountByStatus(@Param("id") Long id);
+
 //
 //    @Query(value = "select status,count(status) from like_or_dislike where article_id in (select article_id_id from coment where id=:id) group by status",nativeQuery = true)
 //    int findBycountByCommentId(@Param("id") Integer id);
