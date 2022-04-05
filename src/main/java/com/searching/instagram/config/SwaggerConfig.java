@@ -3,6 +3,7 @@ package com.searching.instagram.config;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.http.MediaType;
+import springfox.documentation.builders.PathSelectors;
 import springfox.documentation.builders.RequestHandlerSelectors;
 import springfox.documentation.service.ApiInfo;
 import springfox.documentation.service.Contact;
@@ -28,7 +29,8 @@ public class SwaggerConfig {
                 .consumes(consumes)
                 .produces(consumes)
                 .select()
-                .apis(RequestHandlerSelectors.basePackage("com.searching.instagram"))
+                .apis(RequestHandlerSelectors.any())
+                .paths(PathSelectors.any())
                 .build()
                 .apiInfo(apiDetails());
 
@@ -38,7 +40,7 @@ public class SwaggerConfig {
         return new ApiInfo(
                 "Instagram API",
                 "Api docs for Backend of Instagram",
-                "1.0",
+                "2.0",
                 "Searching",
                 new Contact("Sirojiddin",
                         "t.me/+998994246558",

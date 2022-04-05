@@ -5,10 +5,7 @@ import com.searching.instagram.dto.ProfileDTO;
 import com.searching.instagram.service.FollowingService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 import java.util.stream.Collectors;
@@ -25,24 +22,34 @@ public class FollowingController {
         return ResponseEntity.ok(followingService.getById(id));
     }
 
-    @GetMapping("/followers/count")
-    public ResponseEntity<Long> countFollowersById(Long id){
+    @GetMapping("/followers/count/{id}")
+    public ResponseEntity<Long> countFollowersById(@PathVariable Long id){
         return ResponseEntity.ok(followingService.countFollowersById(id));
     }
 
-    @GetMapping("/followings/count")
-    public ResponseEntity<Long> countFollowingsById(Long id){
+    @GetMapping("/followings/count/{id}")
+    public ResponseEntity<Long> countFollowingsById(@PathVariable Long id){
         return ResponseEntity.ok(followingService.countFollowingsById(id));
     }
 
-    @GetMapping("/followers")
-    public ResponseEntity<List<ProfileDTO>> getFollowers(Long id){
+    @GetMapping("/followers/{id}")
+    public ResponseEntity<List<ProfileDTO>> getFollowers(@PathVariable Long id){
         return ResponseEntity.ok(followingService.getFollowers(id));
     }
 
-    @GetMapping("/followings")
-    public ResponseEntity<List<ProfileDTO>> getFollowings(Long id){
+    @GetMapping("/followings/{id}")
+    public ResponseEntity<List<ProfileDTO>> getFollowings(@PathVariable Long id){
         return ResponseEntity.ok(followingService.getFollowings(id));
+    }
+
+    @PostMapping("/follow/{id}")
+    public ResponseEntity<FollowingDTO> follow(@PathVariable Long id){
+        return ResponseEntity.ok(followingService.follow(id));
+    }
+
+    @PostMapping("/unfollow/{id}")
+    public ResponseEntity<String> unFollow(@PathVariable Long id){
+        return ResponseEntity.ok(followingService.unFollow(id));
     }
 
 }

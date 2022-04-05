@@ -35,15 +35,17 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                 .disable()
                 .authorizeRequests()
                 .antMatchers("/auth/**").permitAll()
+                .antMatchers("/**").permitAll()
                 .antMatchers("/swagger-ui/**").permitAll()
+                .antMatchers("/attach/open/**").permitAll()
                 .antMatchers("/profile/**").hasAuthority("ADMIN_ROLE")
 //                .antMatchers("/profile/**").hasAnyRole("ADMIN_ROLE", "USER_ROLE")
 //                .permitAll()
                 .anyRequest()
                 .authenticated()
                 .and()
-                .addFilterBefore(jwtTokenFilter, UsernamePasswordAuthenticationFilter.class)
-                .httpBasic();
+                .addFilterBefore(jwtTokenFilter, UsernamePasswordAuthenticationFilter.class);
+//                .httpBasic();
 
     }
 
