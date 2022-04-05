@@ -1,0 +1,81 @@
+05 Apr 2022 - 10:44:34.160 -  INFO  - c.s.instagram.InstagramApplication - Starting InstagramApplication using Java 17 on DESKTOP-CO9R0N4 with PID 10168 (C:\IdeaProjects\instagram-backend\target\classes started by ssiro in C:\IdeaProjects\instagram-backend)
+05 Apr 2022 - 10:44:34.160 -  INFO  - c.s.instagram.InstagramApplication - No active profile set, falling back to 1 default profile: "default"
+05 Apr 2022 - 10:44:35.258 -  INFO  - o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+05 Apr 2022 - 10:44:35.328 -  INFO  - o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 71 ms. Found 1 JPA repository interfaces.
+05 Apr 2022 - 10:44:36.034 -  INFO  - o.s.b.w.e.tomcat.TomcatWebServer - Tomcat initialized with port(s): 8080 (http)
+05 Apr 2022 - 10:44:36.050 -  INFO  - o.a.catalina.core.StandardService - Starting service [Tomcat]
+05 Apr 2022 - 10:44:36.050 -  INFO  - o.a.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/9.0.60]
+05 Apr 2022 - 10:44:36.191 -  INFO  - o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+05 Apr 2022 - 10:44:36.191 -  INFO  - o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 1941 ms
+05 Apr 2022 - 10:44:36.348 -  INFO  - o.h.jpa.internal.util.LogHelper - HHH000204: Processing PersistenceUnitInfo [name: default]
+05 Apr 2022 - 10:44:36.380 -  INFO  - org.hibernate.Version - HHH000412: Hibernate ORM core version 5.6.7.Final
+05 Apr 2022 - 10:44:36.474 -  INFO  - o.h.annotations.common.Version - HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
+05 Apr 2022 - 10:44:36.561 -  INFO  - com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting...
+05 Apr 2022 - 10:44:36.693 -  INFO  - com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Start completed.
+05 Apr 2022 - 10:44:36.709 -  INFO  - org.hibernate.dialect.Dialect - HHH000400: Using dialect: org.hibernate.dialect.PostgreSQL10Dialect
+05 Apr 2022 - 10:44:37.274 -  INFO  - o.h.e.t.j.p.i.JtaPlatformInitiator - HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+05 Apr 2022 - 10:44:37.274 -  INFO  - o.s.o.j.LocalContainerEntityManagerFactoryBean - Initialized JPA EntityManagerFactory for persistence unit 'default'
+05 Apr 2022 - 10:44:37.572 -  WARN  - o.s.b.a.o.j.JpaBaseConfiguration$JpaWebConfiguration - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+05 Apr 2022 - 10:44:37.965 -  INFO  - o.s.s.web.DefaultSecurityFilterChain - Will not secure any request
+05 Apr 2022 - 10:44:38.199 -  INFO  - o.s.b.w.e.tomcat.TomcatWebServer - Tomcat started on port(s): 8080 (http) with context path ''
+05 Apr 2022 - 10:44:38.372 -  INFO  - c.s.instagram.InstagramApplication - Started InstagramApplication in 4.819 seconds (JVM running for 6.0)
+05 Apr 2022 - 10:44:50.722 -  INFO  - o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring DispatcherServlet 'dispatcherServlet'
+05 Apr 2022 - 10:44:50.723 -  INFO  - o.s.web.servlet.DispatcherServlet - Initializing Servlet 'dispatcherServlet'
+05 Apr 2022 - 10:44:50.726 -  INFO  - o.s.web.servlet.DispatcherServlet - Completed initialization in 3 ms
+05 Apr 2022 - 10:46:21.937 -  INFO  - o.s.o.j.LocalContainerEntityManagerFactoryBean - Closing JPA EntityManagerFactory for persistence unit 'default'
+05 Apr 2022 - 10:46:21.937 -  INFO  - com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown initiated...
+05 Apr 2022 - 10:46:21.953 -  INFO  - com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown completed.
+05 Apr 2022 - 10:46:26.008 -  INFO  - c.s.instagram.InstagramApplication - Starting InstagramApplication using Java 17 on DESKTOP-CO9R0N4 with PID 11956 (C:\IdeaProjects\instagram-backend\target\classes started by ssiro in C:\IdeaProjects\instagram-backend)
+05 Apr 2022 - 10:46:26.022 -  INFO  - c.s.instagram.InstagramApplication - No active profile set, falling back to 1 default profile: "default"
+05 Apr 2022 - 10:46:27.070 -  INFO  - o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+05 Apr 2022 - 10:46:27.133 -  INFO  - o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 45 ms. Found 1 JPA repository interfaces.
+05 Apr 2022 - 10:46:27.685 -  INFO  - o.s.b.w.e.tomcat.TomcatWebServer - Tomcat initialized with port(s): 8080 (http)
+05 Apr 2022 - 10:46:27.692 -  INFO  - o.a.catalina.core.StandardService - Starting service [Tomcat]
+05 Apr 2022 - 10:46:27.693 -  INFO  - o.a.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/9.0.60]
+05 Apr 2022 - 10:46:27.821 -  INFO  - o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+05 Apr 2022 - 10:46:27.821 -  INFO  - o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 1737 ms
+05 Apr 2022 - 10:46:27.972 -  INFO  - o.h.jpa.internal.util.LogHelper - HHH000204: Processing PersistenceUnitInfo [name: default]
+05 Apr 2022 - 10:46:28.013 -  INFO  - org.hibernate.Version - HHH000412: Hibernate ORM core version 5.6.7.Final
+05 Apr 2022 - 10:46:28.122 -  INFO  - o.h.annotations.common.Version - HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
+05 Apr 2022 - 10:46:28.213 -  INFO  - com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting...
+05 Apr 2022 - 10:46:28.343 -  INFO  - com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Start completed.
+05 Apr 2022 - 10:46:28.358 -  INFO  - org.hibernate.dialect.Dialect - HHH000400: Using dialect: org.hibernate.dialect.PostgreSQL10Dialect
+05 Apr 2022 - 10:46:28.837 -  INFO  - o.h.e.t.j.p.i.JtaPlatformInitiator - HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+05 Apr 2022 - 10:46:28.837 -  INFO  - o.s.o.j.LocalContainerEntityManagerFactoryBean - Initialized JPA EntityManagerFactory for persistence unit 'default'
+05 Apr 2022 - 10:46:29.168 -  WARN  - o.s.b.a.o.j.JpaBaseConfiguration$JpaWebConfiguration - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+05 Apr 2022 - 10:46:29.545 -  INFO  - o.s.s.web.DefaultSecurityFilterChain - Will not secure any request
+05 Apr 2022 - 10:46:29.780 -  INFO  - o.s.b.w.e.tomcat.TomcatWebServer - Tomcat started on port(s): 8080 (http) with context path ''
+05 Apr 2022 - 10:46:29.936 -  INFO  - c.s.instagram.InstagramApplication - Started InstagramApplication in 4.524 seconds (JVM running for 5.589)
+05 Apr 2022 - 10:46:48.809 -  INFO  - o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring DispatcherServlet 'dispatcherServlet'
+05 Apr 2022 - 10:46:48.809 -  INFO  - o.s.web.servlet.DispatcherServlet - Initializing Servlet 'dispatcherServlet'
+05 Apr 2022 - 10:46:48.810 -  INFO  - o.s.web.servlet.DispatcherServlet - Completed initialization in 1 ms
+05 Apr 2022 - 11:01:11.864 -  INFO  - o.s.o.j.LocalContainerEntityManagerFactoryBean - Closing JPA EntityManagerFactory for persistence unit 'default'
+05 Apr 2022 - 11:01:11.864 -  INFO  - com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown initiated...
+05 Apr 2022 - 11:01:11.880 -  INFO  - com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown completed.
+05 Apr 2022 - 11:20:02.722 -  INFO  - c.s.instagram.InstagramApplication - Starting InstagramApplication using Java 17 on DESKTOP-CO9R0N4 with PID 3604 (C:\IdeaProjects\instagram-backend\target\classes started by ssiro in C:\IdeaProjects\instagram-backend)
+05 Apr 2022 - 11:20:02.726 -  INFO  - c.s.instagram.InstagramApplication - The following 1 profile is active: "prod"
+05 Apr 2022 - 11:20:04.249 -  INFO  - o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+05 Apr 2022 - 11:20:04.375 -  INFO  - o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 104 ms. Found 1 JPA repository interfaces.
+05 Apr 2022 - 11:20:05.284 -  INFO  - o.s.b.w.e.tomcat.TomcatWebServer - Tomcat initialized with port(s): 8080 (http)
+05 Apr 2022 - 11:20:05.296 -  INFO  - o.a.catalina.core.StandardService - Starting service [Tomcat]
+05 Apr 2022 - 11:20:05.297 -  INFO  - o.a.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/9.0.60]
+05 Apr 2022 - 11:20:05.592 -  INFO  - o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+05 Apr 2022 - 11:20:05.593 -  INFO  - o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 2797 ms
+05 Apr 2022 - 11:20:05.856 -  INFO  - o.h.jpa.internal.util.LogHelper - HHH000204: Processing PersistenceUnitInfo [name: default]
+05 Apr 2022 - 11:20:05.973 -  INFO  - org.hibernate.Version - HHH000412: Hibernate ORM core version 5.6.7.Final
+05 Apr 2022 - 11:20:06.229 -  INFO  - o.h.annotations.common.Version - HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
+05 Apr 2022 - 11:20:06.418 -  INFO  - com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting...
+05 Apr 2022 - 11:20:09.635 -  INFO  - com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Start completed.
+05 Apr 2022 - 11:20:09.703 -  INFO  - org.hibernate.dialect.Dialect - HHH000400: Using dialect: org.hibernate.dialect.PostgreSQL10Dialect
+05 Apr 2022 - 11:20:12.894 -  INFO  - o.h.e.t.j.p.i.JtaPlatformInitiator - HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+05 Apr 2022 - 11:20:12.905 -  INFO  - o.s.o.j.LocalContainerEntityManagerFactoryBean - Initialized JPA EntityManagerFactory for persistence unit 'default'
+05 Apr 2022 - 11:20:13.432 -  WARN  - o.s.b.a.o.j.JpaBaseConfiguration$JpaWebConfiguration - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+05 Apr 2022 - 11:20:14.249 -  INFO  - o.s.s.web.DefaultSecurityFilterChain - Will not secure any request
+05 Apr 2022 - 11:20:14.669 -  INFO  - o.s.b.w.e.tomcat.TomcatWebServer - Tomcat started on port(s): 8080 (http) with context path ''
+05 Apr 2022 - 11:20:15.040 -  INFO  - c.s.instagram.InstagramApplication - Started InstagramApplication in 13.011 seconds (JVM running for 15.309)
+05 Apr 2022 - 11:20:50.947 -  INFO  - o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring DispatcherServlet 'dispatcherServlet'
+05 Apr 2022 - 11:20:50.947 -  INFO  - o.s.web.servlet.DispatcherServlet - Initializing Servlet 'dispatcherServlet'
+05 Apr 2022 - 11:20:50.950 -  INFO  - o.s.web.servlet.DispatcherServlet - Completed initialization in 1 ms
+05 Apr 2022 - 11:21:04.680 -  INFO  - o.s.o.j.LocalContainerEntityManagerFactoryBean - Closing JPA EntityManagerFactory for persistence unit 'default'
+05 Apr 2022 - 11:21:04.682 -  INFO  - com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown initiated...
+05 Apr 2022 - 11:21:06.962 -  INFO  - com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown completed.
