@@ -56,7 +56,7 @@ public class CommentController {
 
     @GetMapping("/post/{postId}")
     @ApiOperation(value = "GetArticleCommentList method", notes = "Bunda Article ga yozilgan Commentlar olinadi pagenition bilan", nickname = "NickName")
-    public ResponseEntity<List<CommentDTO>> getArticleCommentList(@PathVariable("postId") Integer postId) {
+    public ResponseEntity<List<CommentDTO>> getArticleCommentList(@PathVariable("postId") Long postId) {
         List<CommentDTO> list = commentServise.getPostCommentList(postId);
         return ResponseEntity.ok(list);
     }

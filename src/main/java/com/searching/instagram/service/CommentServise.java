@@ -96,7 +96,7 @@ public class CommentServise {
                 .map(this::toDTO).collect(Collectors.toList());
     }
 
-    public List<CommentDTO> getPostCommentList(Integer postId) {
+    public List<CommentDTO> getPostCommentList(Long postId) {
         return commentRepository.findByPostId(postId).stream()
                 .map(this::toDTO).collect(Collectors.toList());
     }

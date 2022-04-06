@@ -21,7 +21,7 @@ public interface CommentRepository extends JpaRepository<CommentEntity, Long>, J
     //
 //    Page<CommentEntity> findAll(Pageable pageable);
     @Query("Select s from CommentEntity s where s.postId=:postId")
-    List<CommentEntity> findByPostId(@Param("postId") Integer postId);
+    List<CommentEntity> findByPostId(@Param("postId") Long postId);
 //
     Optional<CommentEntity> findByContent(String content);
 

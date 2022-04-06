@@ -58,6 +58,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                 .antMatchers("/post/**").permitAll()
                 //comment
                 .antMatchers(HttpMethod.POST, "/comment").hasAnyAuthority("ADMIN_ROLE", "USER_ROLE")
+                .antMatchers(HttpMethod.GET, "/comment").hasAnyAuthority("ADMIN_ROLE", "USER_ROLE")
                 .antMatchers(HttpMethod.DELETE, "/comment/**").hasAnyAuthority("ADMIN_ROLE", "USER_ROLE")
                 .antMatchers("/comment/**").permitAll()
                 //following
