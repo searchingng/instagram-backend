@@ -63,8 +63,14 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                 .antMatchers("/save/**").hasAnyAuthority("ADMIN_ROLE", "USER_ROLE")
 
                 //swagger
-                .antMatchers("/v2/**").permitAll()
-                .antMatchers("/swagger-ui/**").permitAll()
+                .antMatchers("/v2/api-docs",
+                        "/configuration/ui",
+                        "/swagger-resources/**",
+                        "/configuration/security",
+                        "/swagger-ui.html",
+                        "/webjars/**").permitAll()
+//                .antMatchers("/v2/**").permitAll()
+//                .antMatchers("/swagger-ui/**").permitAll()
 //                .antMatchers("/profile/**").hasAnyRole("ADMIN_ROLE", "USER_ROLE")
 //                .permitAll()
                 .anyRequest()
@@ -72,6 +78,12 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                 .and()
                 .addFilterBefore(jwtTokenFilter, UsernamePasswordAuthenticationFilter.class);
 //                .httpBasic();
+    }
+
+    @Override
+    public void configure(WebSecurity web) throws Exception {
+        web.ignoring().mvcMatchers(HttpMethod.OPTIONS, "/**");
+        web.ignoring().mvcMatchers("/swagger-ui.html/**", "/configuration/**", "/swagger-resources/**", "/v2/api-docs", "/webjars/**");
     }
 
     @Bean

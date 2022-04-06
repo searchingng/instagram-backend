@@ -19,22 +19,33 @@ import java.util.Set;
 @EnableSwagger2
 public class SwaggerConfig {
 
+//    @Bean
+//    public Docket swaggerConfiguration() {
+//
+//        Set<String> consumes = new HashSet<>();
+//        consumes.add(MediaType.APPLICATION_JSON_VALUE);
+//
+//        return new Docket(DocumentationType.SWAGGER_2)
+//                .consumes(consumes)
+//                .produces(consumes)
+//                .select()
+//                .apis(RequestHandlerSelectors.any())
+//                .paths(PathSelectors.any())
+//                .build()
+//                .apiInfo(apiDetails())
+//                .apiInfo(apiDetails_2());
+//
+//    }
+
     @Bean
-    public Docket swaggerConfiguration() {
-
-        Set<String> consumes = new HashSet<>();
-        consumes.add(MediaType.APPLICATION_JSON_VALUE);
-
-        return new Docket(DocumentationType.SWAGGER_2)
-                .consumes(consumes)
-                .produces(consumes)
-                .select()
-                .apis(RequestHandlerSelectors.any())
+    public Docket api() {
+        return new Docket(DocumentationType.SWAGGER_2).select()
+                .apis(RequestHandlerSelectors
+                        .basePackage("com.searching.instagram"))
                 .paths(PathSelectors.any())
                 .build()
-                .apiInfo(apiDetails())
-                .apiInfo(apiDetails_2());
-
+                .apiInfo(apiDetails());
+//                .apiInfo(apiDetails_2());;
     }
 
     private ApiInfo apiDetails() {

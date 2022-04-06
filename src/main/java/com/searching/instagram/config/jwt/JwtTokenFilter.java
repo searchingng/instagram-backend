@@ -27,8 +27,15 @@ public class JwtTokenFilter extends OncePerRequestFilter {
                                     FilterChain filterChain) throws ServletException, IOException {
 
         String auth = (String) request.getHeader("Authorization");
-
-        if (auth == null || auth.isBlank() || !auth.startsWith("Bearer ")){
+        if (request.getRequestURI().startsWith("/swagger")
+                || request.getRequestURI().startsWith("/webjars")
+                || request.getRequestURI().startsWith("/csrf")
+                || request.getRequestURI().startsWith("/v2/api-docs")
+        ) {
+            filterChain.doFilter(request, response);
+            return;
+        }
+        if (auth == null || auth.isBlank() || !auth.startsWith("Bearer ")) {
             response.setStatus(401);
             filterChain.doFilter(request, response);
             return;
@@ -37,7 +44,7 @@ public class JwtTokenFilter extends OncePerRequestFilter {
         String jwt = auth.split(" ")[1].trim();
         JwtDTO jwtDto = JwtUtil.parseJwt(jwt);
 
-        if (jwtDto == null){
+        if (jwtDto == null) {
             response.setStatus(401);
             filterChain.doFilter(request, response);
             return;
