@@ -13,6 +13,7 @@ import javax.validation.constraints.NotEmpty;
 import javax.validation.constraints.PastOrPresent;
 import javax.validation.constraints.Positive;
 import java.time.LocalDateTime;
+import java.util.Set;
 
 @Data
 @JsonInclude(JsonInclude.Include.NON_NULL)
@@ -29,4 +30,6 @@ public class PostDTO {
     private Long profileId;
 
     private LocalDateTime createdDate;
+
+    private Set<String> attachs;
 }

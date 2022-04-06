@@ -34,7 +34,7 @@ public class PostController {
         return ResponseEntity.ok(response);
     }
 
-    @GetMapping("/delete/{id}")
+    @DeleteMapping("/delete/{id}")
     @ApiOperation(value = "Delete method", notes = "Bunda  post Delete qilinadi content orqali  faqat Adminlar ", nickname = "NickName")
     public String DeletePostByAdmin(@PathVariable("id") Long postId) {
         postService.deletePost(postId);
@@ -42,7 +42,7 @@ public class PostController {
     }
 
     @GetMapping("/{id}")
-    @ApiOperation(value = "get Article By Id method", notes = "Bunda bor post ni olish uchun ishlatiladi Id orqali faqat Admin lar ", nickname = "NickName")
+    @ApiOperation(value = "get Post By Id method", notes = "Bunda bor post ni olish uchun ishlatiladi Id orqali faqat Admin lar ", nickname = "NickName")
     public ResponseEntity<?> getArticleById(@PathVariable("id") Long id) {
         PostDTO response = postService.getById(id);
         return ResponseEntity.ok(response);
@@ -50,7 +50,7 @@ public class PostController {
 
 
     @GetMapping
-    @ApiOperation(value = "Aricle List method", notes = "Bunda bor postlar Olinadi  Userlar  ", nickname = "NickName")
+    @ApiOperation(value = "Post List method", notes = "Bunda bor postlar Olinadi  Userlar  ", nickname = "NickName")
     public ResponseEntity<List<PostDTO>> getArticleList() {
         List<PostDTO> list = postService.getAllPost();
         return ResponseEntity.ok(list);

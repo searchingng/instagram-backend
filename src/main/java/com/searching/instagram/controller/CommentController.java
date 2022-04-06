@@ -23,7 +23,7 @@ public class CommentController {
     @Autowired
     private CommentServise commentServise;
 
-    @PostMapping()
+    @PostMapping
     @ApiOperation(value = "create  method", notes = "Bunda comment create qilinadi", nickname = "NickName")
     public ResponseEntity<CommentDTO> create(@Valid @RequestBody CommentDTO dto) {
         dto = commentServise.create(dto);
@@ -38,7 +38,7 @@ public class CommentController {
         return ResponseEntity.ok(response);
     }
 
-    @GetMapping("/delete/{id}")
+    @DeleteMapping("/delete/{id}")
     @ApiOperation(value = "Delete method", notes = "Bunda comment delete qilinadi content orqali user lar o'zi yozgan commentlarni ", nickname = "NickName")
     public String DeleteCommentByAdmin(@PathVariable("id") Long id) {
         commentServise.deleteComment(id);

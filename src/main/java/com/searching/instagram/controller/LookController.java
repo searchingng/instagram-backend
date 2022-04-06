@@ -13,7 +13,7 @@ import javax.validation.Valid;
 import java.util.List;
 
 @RestController
-@RequestMapping("/Look")
+@RequestMapping("/look")
 @Api(tags = "Look")
 public class LookController {
     @Autowired

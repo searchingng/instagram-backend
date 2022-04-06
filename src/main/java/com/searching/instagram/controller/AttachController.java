@@ -24,6 +24,18 @@ public class AttachController {
         return ResponseEntity.ok(attachService.upload(multipartFile, type));
     }
 
+    /*@PostMapping("/upload/post/{postId}")
+    public ResponseEntity<AttachDTO> uplaodForPost(@RequestParam("file") MultipartFile multipartFile,
+                                                   @PathVariable("postId") Long postId){
+        return ResponseEntity.ok(attachService.upload(multipartFile, postId, AttachType.POST));
+    }
+
+    @PostMapping("/upload/avatar")
+    public ResponseEntity<AttachDTO> uplaodForAvatar(@RequestParam("file") MultipartFile multipartFile,
+                                            @PathVariable("type") String type){
+        return ResponseEntity.ok(attachService.upload(multipartFile, null, AttachType.AVATAR));
+    }*/
+
     @GetMapping("/get/{id}")
     public ResponseEntity<AttachDTO> getById(@PathVariable String id){
         return ResponseEntity.ok(attachService.getById(id));

@@ -7,6 +7,7 @@ import lombok.Setter;
 
 import javax.persistence.*;
 import java.time.LocalDateTime;
+import java.util.Set;
 
 @Setter
 @Getter
@@ -27,6 +28,14 @@ public class PostEntity extends BaseEntity {
 
     @Column(name = "profile_id")
     private Long profileId;
+
+    @OneToMany
+    @JoinTable(
+            name = "post_attach",
+            joinColumns = {@JoinColumn(name = "post_id")},
+            inverseJoinColumns = {@JoinColumn(name = "attach_id")}
+    )
+    private Set<AttachEntity> attachs;
 
 
 }
