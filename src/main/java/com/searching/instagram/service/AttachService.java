@@ -91,7 +91,7 @@ public class AttachService {
         attachRepository.save(entity);
 
         String extension = getExtension(entity.getName());
-        String path = address + entity.getId() + "." + extension;
+        String path = address + "/" + entity.getId() + "." + extension;
         ProfileEntity currentUser = SecurityUtil.getCurrentUser();
         String url = host + "/attach/open/" + entity.getId();
 
