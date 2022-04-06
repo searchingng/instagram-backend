@@ -6677,3 +6677,100 @@ Caused by: org.hibernate.HibernateException: Access to DialectResolutionInfo can
 06 Apr 2022 - 20:27:54.081 -  INFO  - o.s.o.j.LocalContainerEntityManagerFactoryBean - Closing JPA EntityManagerFactory for persistence unit 'default'
 06 Apr 2022 - 20:27:54.083 -  INFO  - com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown initiated...
 06 Apr 2022 - 20:27:56.286 -  INFO  - com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown completed.
+06 Apr 2022 - 21:10:45.010 -  INFO  - c.s.instagram.InstagramApplication - Starting InstagramApplication using Java 17 on DESKTOP-CO9R0N4 with PID 3040 (C:\IdeaProjects\instagram-backend\target\classes started by ssiro in C:\IdeaProjects\instagram-backend)
+06 Apr 2022 - 21:10:45.012 -  INFO  - c.s.instagram.InstagramApplication - The following 1 profile is active: "prod"
+06 Apr 2022 - 21:10:45.901 -  INFO  - o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+06 Apr 2022 - 21:10:45.976 -  INFO  - o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 66 ms. Found 8 JPA repository interfaces.
+06 Apr 2022 - 21:10:46.479 -  INFO  - o.s.b.w.e.tomcat.TomcatWebServer - Tomcat initialized with port(s): 8080 (http)
+06 Apr 2022 - 21:10:46.486 -  INFO  - o.a.catalina.core.StandardService - Starting service [Tomcat]
+06 Apr 2022 - 21:10:46.487 -  INFO  - o.a.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/9.0.60]
+06 Apr 2022 - 21:10:46.583 -  INFO  - o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+06 Apr 2022 - 21:10:46.584 -  INFO  - o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 1527 ms
+06 Apr 2022 - 21:10:46.693 -  INFO  - o.h.jpa.internal.util.LogHelper - HHH000204: Processing PersistenceUnitInfo [name: default]
+06 Apr 2022 - 21:10:46.732 -  INFO  - org.hibernate.Version - HHH000412: Hibernate ORM core version 5.6.7.Final
+06 Apr 2022 - 21:10:46.848 -  INFO  - o.h.annotations.common.Version - HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
+06 Apr 2022 - 21:10:46.918 -  INFO  - com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting...
+06 Apr 2022 - 21:10:49.488 -  INFO  - com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Start completed.
+06 Apr 2022 - 21:10:49.507 -  INFO  - org.hibernate.dialect.Dialect - HHH000400: Using dialect: org.hibernate.dialect.PostgreSQL10Dialect
+06 Apr 2022 - 21:10:49.968 -  WARN  - org.hibernate.id.UUIDHexGenerator - HHH000409: Using org.hibernate.id.UUIDHexGenerator which does not generate IETF RFC 4122 compliant UUID values; consider using org.hibernate.id.UUIDGenerator instead
+06 Apr 2022 - 21:11:00.336 -  INFO  - o.h.e.t.j.p.i.JtaPlatformInitiator - HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+06 Apr 2022 - 21:11:00.343 -  INFO  - o.s.o.j.LocalContainerEntityManagerFactoryBean - Initialized JPA EntityManagerFactory for persistence unit 'default'
+06 Apr 2022 - 21:11:00.613 -  WARN  - o.s.b.a.o.j.JpaBaseConfiguration$JpaWebConfiguration - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+06 Apr 2022 - 21:11:01.399 -  INFO  - o.s.s.web.DefaultSecurityFilterChain - Will not secure any request
+06 Apr 2022 - 21:11:01.725 -  INFO  - o.s.b.w.e.tomcat.TomcatWebServer - Tomcat started on port(s): 8080 (http) with context path ''
+06 Apr 2022 - 21:11:02.263 -  INFO  - c.s.instagram.InstagramApplication - Started InstagramApplication in 17.747 seconds (JVM running for 18.892)
+06 Apr 2022 - 21:16:01.697 -  INFO  - o.s.o.j.LocalContainerEntityManagerFactoryBean - Closing JPA EntityManagerFactory for persistence unit 'default'
+06 Apr 2022 - 21:16:01.699 -  INFO  - com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown initiated...
+06 Apr 2022 - 21:16:10.014 -  INFO  - c.s.instagram.InstagramApplication - Starting InstagramApplication using Java 17 on DESKTOP-CO9R0N4 with PID 13328 (C:\IdeaProjects\instagram-backend\target\classes started by ssiro in C:\IdeaProjects\instagram-backend)
+06 Apr 2022 - 21:16:10.017 -  INFO  - c.s.instagram.InstagramApplication - The following 1 profile is active: "prod"
+06 Apr 2022 - 21:16:10.854 -  INFO  - o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+06 Apr 2022 - 21:16:10.918 -  INFO  - o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 56 ms. Found 8 JPA repository interfaces.
+06 Apr 2022 - 21:16:11.423 -  INFO  - o.s.b.w.e.tomcat.TomcatWebServer - Tomcat initialized with port(s): 8080 (http)
+06 Apr 2022 - 21:16:11.432 -  INFO  - o.a.catalina.core.StandardService - Starting service [Tomcat]
+06 Apr 2022 - 21:16:11.432 -  INFO  - o.a.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/9.0.60]
+06 Apr 2022 - 21:16:11.629 -  INFO  - o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+06 Apr 2022 - 21:16:11.630 -  INFO  - o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 1560 ms
+06 Apr 2022 - 21:16:11.895 -  INFO  - o.h.jpa.internal.util.LogHelper - HHH000204: Processing PersistenceUnitInfo [name: default]
+06 Apr 2022 - 21:16:12.140 -  INFO  - org.hibernate.Version - HHH000412: Hibernate ORM core version 5.6.7.Final
+06 Apr 2022 - 21:16:12.608 -  INFO  - o.h.annotations.common.Version - HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
+06 Apr 2022 - 21:16:12.783 -  INFO  - com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting...
+06 Apr 2022 - 21:16:16.596 -  INFO  - com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Start completed.
+06 Apr 2022 - 21:16:16.610 -  INFO  - org.hibernate.dialect.Dialect - HHH000400: Using dialect: org.hibernate.dialect.PostgreSQL10Dialect
+06 Apr 2022 - 21:16:17.083 -  WARN  - org.hibernate.id.UUIDHexGenerator - HHH000409: Using org.hibernate.id.UUIDHexGenerator which does not generate IETF RFC 4122 compliant UUID values; consider using org.hibernate.id.UUIDGenerator instead
+06 Apr 2022 - 21:16:30.371 -  INFO  - o.h.e.t.j.p.i.JtaPlatformInitiator - HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+06 Apr 2022 - 21:16:30.379 -  INFO  - o.s.o.j.LocalContainerEntityManagerFactoryBean - Initialized JPA EntityManagerFactory for persistence unit 'default'
+06 Apr 2022 - 21:16:30.634 -  WARN  - o.s.b.a.o.j.JpaBaseConfiguration$JpaWebConfiguration - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+06 Apr 2022 - 21:16:31.256 -  INFO  - o.s.s.web.DefaultSecurityFilterChain - Will not secure any request
+06 Apr 2022 - 21:16:31.504 -  INFO  - o.s.b.w.e.tomcat.TomcatWebServer - Tomcat started on port(s): 8080 (http) with context path ''
+06 Apr 2022 - 21:16:31.878 -  INFO  - c.s.instagram.InstagramApplication - Started InstagramApplication in 22.293 seconds (JVM running for 23.412)
+06 Apr 2022 - 21:16:49.629 -  INFO  - o.s.o.j.LocalContainerEntityManagerFactoryBean - Closing JPA EntityManagerFactory for persistence unit 'default'
+06 Apr 2022 - 21:16:49.633 -  INFO  - com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown initiated...
+06 Apr 2022 - 21:16:53.490 -  INFO  - com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown completed.
+06 Apr 2022 - 21:16:58.297 -  INFO  - c.s.instagram.InstagramApplication - Starting InstagramApplication using Java 17 on DESKTOP-CO9R0N4 with PID 7800 (C:\IdeaProjects\instagram-backend\target\classes started by ssiro in C:\IdeaProjects\instagram-backend)
+06 Apr 2022 - 21:16:58.301 -  INFO  - c.s.instagram.InstagramApplication - The following 1 profile is active: "prod"
+06 Apr 2022 - 21:16:59.109 -  INFO  - o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+06 Apr 2022 - 21:16:59.176 -  INFO  - o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 59 ms. Found 8 JPA repository interfaces.
+06 Apr 2022 - 21:16:59.595 -  INFO  - o.s.b.w.e.tomcat.TomcatWebServer - Tomcat initialized with port(s): 8080 (http)
+06 Apr 2022 - 21:16:59.602 -  INFO  - o.a.catalina.core.StandardService - Starting service [Tomcat]
+06 Apr 2022 - 21:16:59.602 -  INFO  - o.a.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/9.0.60]
+06 Apr 2022 - 21:16:59.706 -  INFO  - o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+06 Apr 2022 - 21:16:59.706 -  INFO  - o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 1345 ms
+06 Apr 2022 - 21:16:59.811 -  INFO  - o.h.jpa.internal.util.LogHelper - HHH000204: Processing PersistenceUnitInfo [name: default]
+06 Apr 2022 - 21:16:59.841 -  INFO  - org.hibernate.Version - HHH000412: Hibernate ORM core version 5.6.7.Final
+06 Apr 2022 - 21:16:59.942 -  INFO  - o.h.annotations.common.Version - HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
+06 Apr 2022 - 21:17:00.010 -  INFO  - com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting...
+06 Apr 2022 - 21:17:03.455 -  INFO  - com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Start completed.
+06 Apr 2022 - 21:17:03.473 -  INFO  - org.hibernate.dialect.Dialect - HHH000400: Using dialect: org.hibernate.dialect.PostgreSQL10Dialect
+06 Apr 2022 - 21:17:03.950 -  WARN  - org.hibernate.id.UUIDHexGenerator - HHH000409: Using org.hibernate.id.UUIDHexGenerator which does not generate IETF RFC 4122 compliant UUID values; consider using org.hibernate.id.UUIDGenerator instead
+06 Apr 2022 - 21:17:23.035 -  INFO  - o.h.e.t.j.p.i.JtaPlatformInitiator - HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+06 Apr 2022 - 21:17:23.042 -  INFO  - o.s.o.j.LocalContainerEntityManagerFactoryBean - Initialized JPA EntityManagerFactory for persistence unit 'default'
+06 Apr 2022 - 21:17:23.298 -  WARN  - o.s.b.a.o.j.JpaBaseConfiguration$JpaWebConfiguration - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+06 Apr 2022 - 21:17:23.937 -  INFO  - o.s.s.web.DefaultSecurityFilterChain - Will not secure any request
+06 Apr 2022 - 21:17:24.192 -  INFO  - o.s.b.w.e.tomcat.TomcatWebServer - Tomcat started on port(s): 8080 (http) with context path ''
+06 Apr 2022 - 21:17:24.581 -  INFO  - c.s.instagram.InstagramApplication - Started InstagramApplication in 26.831 seconds (JVM running for 27.774)
+06 Apr 2022 - 21:17:37.620 -  INFO  - o.a.coyote.http11.Http11Processor - Error parsing HTTP request header
+ Note: further occurrences of HTTP request parsing errors will be logged at DEBUG level.
+java.lang.IllegalArgumentException: Invalid character found in method name [0x160x030x010x000xf70x010x000x000xf30x030x03[B0x1bK0xd90x130xfc0x0f0xc50x140xc60xac0xed0xba0x85_e*q0xee0xf00xa6(0x130xb1^b0x03{30x8cM ]. HTTP method names must be tokens
+	at org.apache.coyote.http11.Http11InputBuffer.parseRequestLine(Http11InputBuffer.java:419)
+	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:271)
+	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:65)
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:889)
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1743)
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:49)
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1191)
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:659)
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61)
+	at java.base/java.lang.Thread.run(Thread.java:833)
+06 Apr 2022 - 21:21:18.487 -  INFO  - o.a.coyote.http11.Http11Processor - Error parsing HTTP request header
+ Note: further occurrences of HTTP request parsing errors will be logged at DEBUG level.
+java.lang.IllegalArgumentException: Invalid character found in method name [0x160x030x010x020x000x010x000x010xfc0x030x030x97Q0xa70xc30xf4Bk\0xd60x090xf5o0xf00xb10xeas0x8690xfc0x880xc70x09I0xd10x870xba0x980xcc0xb90x8aVr ]. HTTP method names must be tokens
+	at org.apache.coyote.http11.Http11InputBuffer.parseRequestLine(Http11InputBuffer.java:419)
+	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:271)
+	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:65)
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:889)
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1743)
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:49)
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1191)
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:659)
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61)
+	at java.base/java.lang.Thread.run(Thread.java:833)

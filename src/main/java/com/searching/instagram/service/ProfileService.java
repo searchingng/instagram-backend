@@ -51,7 +51,7 @@ public class ProfileService {
             throw new RuntimeException("Phone is already registrated");
         }
 
-        if (profileRepository.existsByPhone(dto.getPhone())){
+        if (profileRepository.existsByUsername(dto.getUsername())){
             log.warn("Username is already registrated");
             throw new RuntimeException("Phone is already registrated");
         }
