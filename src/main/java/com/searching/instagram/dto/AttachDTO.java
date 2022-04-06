@@ -21,6 +21,7 @@ public class AttachDTO {
     private AttachType type;
 
     private Long profileId;
+//    private Long postId;
     private String url;
 
 }

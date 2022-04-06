@@ -1504,28 +1504,3 @@ com.searching.instagram.controller.FollowingController#follow(Long) mapped.
 05 Apr 2022 - 18:54:26.619 -  INFO  - o.s.o.j.LocalContainerEntityManagerFactoryBean - Closing JPA EntityManagerFactory for persistence unit 'default'
 05 Apr 2022 - 18:54:26.619 -  INFO  - com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown initiated...
 05 Apr 2022 - 18:54:26.619 -  INFO  - com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown completed.
-05 Apr 2022 - 20:17:27.495 -  INFO  - c.s.instagram.InstagramApplication - Starting InstagramApplication using Java 17 on DESKTOP-CO9R0N4 with PID 15020 (C:\IdeaProjects\instagram-backend\target\classes started by ssiro in C:\IdeaProjects\instagram-backend)
-05 Apr 2022 - 20:17:27.495 -  INFO  - c.s.instagram.InstagramApplication - The following 1 profile is active: "dev"
-05 Apr 2022 - 20:17:28.237 -  INFO  - o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
-05 Apr 2022 - 20:17:28.283 -  INFO  - o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 45 ms. Found 3 JPA repository interfaces.
-05 Apr 2022 - 20:17:28.738 -  INFO  - o.s.b.w.e.tomcat.TomcatWebServer - Tomcat initialized with port(s): 8080 (http)
-05 Apr 2022 - 20:17:28.753 -  INFO  - o.a.catalina.core.StandardService - Starting service [Tomcat]
-05 Apr 2022 - 20:17:28.753 -  INFO  - o.a.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/9.0.60]
-05 Apr 2022 - 20:17:28.848 -  INFO  - o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
-05 Apr 2022 - 20:17:28.848 -  INFO  - o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 1312 ms
-05 Apr 2022 - 20:17:28.957 -  INFO  - o.h.jpa.internal.util.LogHelper - HHH000204: Processing PersistenceUnitInfo [name: default]
-05 Apr 2022 - 20:17:28.989 -  INFO  - org.hibernate.Version - HHH000412: Hibernate ORM core version 5.6.7.Final
-05 Apr 2022 - 20:17:29.099 -  INFO  - o.h.annotations.common.Version - HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
-05 Apr 2022 - 20:17:29.177 -  INFO  - com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting...
-05 Apr 2022 - 20:17:29.303 -  INFO  - com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Start completed.
-05 Apr 2022 - 20:17:29.334 -  INFO  - org.hibernate.dialect.Dialect - HHH000400: Using dialect: org.hibernate.dialect.PostgreSQL10Dialect
-05 Apr 2022 - 20:17:29.460 -  WARN  - org.hibernate.id.UUIDHexGenerator - HHH000409: Using org.hibernate.id.UUIDHexGenerator which does not generate IETF RFC 4122 compliant UUID values; consider using org.hibernate.id.UUIDGenerator instead
-05 Apr 2022 - 20:17:29.930 -  INFO  - o.h.e.t.j.p.i.JtaPlatformInitiator - HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
-05 Apr 2022 - 20:17:29.940 -  INFO  - o.s.o.j.LocalContainerEntityManagerFactoryBean - Initialized JPA EntityManagerFactory for persistence unit 'default'
-05 Apr 2022 - 20:17:30.244 -  WARN  - o.s.b.a.o.j.JpaBaseConfiguration$JpaWebConfiguration - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
-05 Apr 2022 - 20:17:30.762 -  INFO  - o.s.s.web.DefaultSecurityFilterChain - Will not secure any request
-05 Apr 2022 - 20:17:30.997 -  INFO  - o.s.b.w.e.tomcat.TomcatWebServer - Tomcat started on port(s): 8080 (http) with context path ''
-05 Apr 2022 - 20:17:31.233 -  INFO  - c.s.instagram.InstagramApplication - Started InstagramApplication in 4.051 seconds (JVM running for 4.724)
-05 Apr 2022 - 20:17:37.071 -  INFO  - o.s.o.j.LocalContainerEntityManagerFactoryBean - Closing JPA EntityManagerFactory for persistence unit 'default'
-05 Apr 2022 - 20:17:37.071 -  INFO  - com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown initiated...
-05 Apr 2022 - 20:17:37.087 -  INFO  - com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown completed.

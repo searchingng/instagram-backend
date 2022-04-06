@@ -1,5 +1,6 @@
 package com.searching.instagram.service;
 
+import com.searching.instagram.config.security.SecurityUtil;
 import com.searching.instagram.dto.ProfileDTO;
 import com.searching.instagram.entity.ProfileEntity;
 import com.searching.instagram.entity.enums.ProfileGender;
@@ -10,7 +11,11 @@ import com.searching.instagram.repository.ProfileRepository;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.apache.commons.codec.digest.DigestUtils;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
+
+import java.util.List;
 
 @Service
 @RequiredArgsConstructor
@@ -51,7 +56,7 @@ public class ProfileService {
             throw new RuntimeException("Phone is already registrated");
         }
 
-        if (profileRepository.existsByPhone(dto.getPhone())){
+        if (profileRepository.existsByUsername(dto.getUsername())){
             log.warn("Username is already registrated");
             throw new RuntimeException("Phone is already registrated");
         }
@@ -95,5 +100,57 @@ public class ProfileService {
         return toDto(get(id));
     }
 
+    public Page<ProfileDTO> getAll(Pageable pageable){
+        return profileRepository.findAll(pageable).map(this::toDto);
+    }
+
+    public void deleteById(Long id){
+        profileRepository.deleteById(id);
+    }
+
+    public void update(ProfileDTO dto){
+
+        ProfileEntity profile = SecurityUtil.getCurrentUser();
+
+        if (dto.getFullName() != null) {
+            profile.setFullName(dto.getFullName());
+        }
+
+        if (dto.getBio() != null) {
+            profile.setBio(dto.getBio());
+        }
+
+        if (dto.getPhone() != null) {
+            profile.setPhone(dto.getPhone());
+        }
+
+        if (dto.getEmail() != null) {
+            profile.setEmail(dto.getEmail());
+        }
+
+        if (dto.getUsername() != null) {
+            profile.setUsername(dto.getUsername());
+        }
+
+        if (dto.getBirthDate() != null) {
+            profile.setBirthDate(dto.getBirthDate());
+        }
+
+        if (dto.getGender() != null) {
+            profile.setGender(dto.getGender());
+        }
+
+        if (dto.getWebsite() != null) {
+            profile.setWebsite(dto.getWebsite());
+        }
+
+        if (dto.getPassword() != null) {
+            String password = DigestUtils.md5Hex(dto.getPassword());
+            profile.setPassword(password);
+        }
+
+        profileRepository.save(profile);
+
+    }
 
 }

@@ -32,7 +32,8 @@ public class SwaggerConfig {
                 .apis(RequestHandlerSelectors.any())
                 .paths(PathSelectors.any())
                 .build()
-                .apiInfo(apiDetails());
+                .apiInfo(apiDetails())
+                .apiInfo(apiDetails_2());
 
     }
 
@@ -45,6 +46,21 @@ public class SwaggerConfig {
                 new Contact("Sirojiddin",
                         "t.me/+998994246558",
                         "ssirojiddin2004@gmail.com"),
+                "",
+                "",
+                Collections.emptyList()
+        );
+    }
+
+    private ApiInfo apiDetails_2() {
+        return new ApiInfo(
+                "Instagram API",
+                "Api docs for Backend of Instagram",
+                "1.0",
+                "Searching",
+                new Contact("Muxriddin",
+                        "t.me/+998994214924",
+                        "muxriddin200228@gmail.com"),
                 "",
                 "",
                 Collections.emptyList()

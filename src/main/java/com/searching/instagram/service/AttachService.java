@@ -98,8 +98,9 @@ public class AttachService {
         entity.setProfileId(currentUser.getId());
         entity.setExtension(extension);
         entity.setUrl(url);
+//        entity.setPostId(postId);
         entity.setPath(path);
-        entity.setType(AttachType.valueOf(type.toUpperCase()));
+        entity.setType(AttachType.valueOf(type));
         attachRepository.save(entity);
 
         try {
