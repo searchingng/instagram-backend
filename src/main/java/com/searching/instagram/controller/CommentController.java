@@ -33,7 +33,7 @@ public class CommentController {
 
     @GetMapping("/getarticlebyid/{id}")
     @ApiOperation(value = "get Comment By Id  method", notes = "Bunda comment olinadi faqat Statusi publish bo'lgan Articlelardan ", nickname = "NickName")
-    public ResponseEntity<?> getCommentById(HttpServletRequest request, @PathVariable Long id) {
+    public ResponseEntity<?> getCommentById(HttpServletRequest request, @PathVariable("id") Long id) {
         CommentEntity response = commentServise.getById(id);
         return ResponseEntity.ok(response);
     }

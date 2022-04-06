@@ -15,10 +15,10 @@ public class LookDTO {
     private Long id;
 
     @Positive
-    private Integer profileId;
+    private Long profileId;
 
     @Positive
-    private Integer postId;
+    private Long postId;
 
     @PastOrPresent
     private LocalDateTime created_date;

@@ -1,13 +1,15 @@
 package com.searching.instagram.repository;
 
 import com.searching.instagram.entity.ProfileEntity;
+import com.searching.instagram.entity.SaveEntity;
 import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.data.jpa.repository.JpaSpecificationExecutor;
 import org.springframework.stereotype.Repository;
 
 import java.util.Optional;
 
 @Repository
-public interface ProfileRepository extends JpaRepository<ProfileEntity, Long> {
+public interface ProfileRepository extends JpaRepository<ProfileEntity, Long>, JpaSpecificationExecutor<ProfileEntity> {
 
     Optional<ProfileEntity> findByPhone(String phone);
 

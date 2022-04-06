@@ -76,6 +76,7 @@ public class CommentServise {
         }
         Optional<CommentEntity> entity1 = commentRepository.findByContent(content);
         if (!entity1.get().getProfile().getId().equals(profileId)) {
+
             throw new UnauthorizedException("the owner of this content was not found");
         }
 

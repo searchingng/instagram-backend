@@ -3,17 +3,19 @@ package com.searching.instagram.repository;
 
 import com.searching.instagram.entity.LikeEntity;
 import com.searching.instagram.entity.PostEntity;
+import org.springframework.data.domain.Pageable;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.JpaSpecificationExecutor;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;
 import org.springframework.stereotype.Repository;
 
+import java.util.List;
 import java.util.Optional;
 
 @Repository
 public interface LikeRepository extends JpaRepository<LikeEntity, Long>, JpaSpecificationExecutor<LikeEntity> {
-    Optional<LikeEntity> findByPostIdAndProfileId(Long id,Long profileid);
+    Optional<LikeEntity> findByPostIdAndProfileId(Long id, Long profileid);
 
     //    @Transactional
 //    @Modifying
@@ -28,6 +30,10 @@ public interface LikeRepository extends JpaRepository<LikeEntity, Long>, JpaSpec
 //
     @Query(value = "select count(s.likeType) from LikeEntity s where s.post.id=:id")
     int findBycountByStatus(@Param("id") Long id);
+
+    List<LikeEntity> findByProfileId(Long profileId, Pageable pageable);
+
+    List<LikeEntity> findByPostId(Long postId, Pageable pageable);
 
 //
 //    @Query(value = "select status,count(status) from like_or_dislike where article_id in (select article_id_id from coment where id=:id) group by status",nativeQuery = true)

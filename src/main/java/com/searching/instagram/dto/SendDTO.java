@@ -20,13 +20,13 @@ public class SendDTO {
     private Long id;
 
     @Positive
-    private Integer profileId;
+    private Long profileId;
 
     @Positive
-    private Integer postId;
+    private Long postId;
 
     @Positive
-    private Integer sendprofileId; // bittaga yoki ko'pchilikka jo'natishimiz mumkin
+    private Long sendprofileId; // bittaga yoki ko'pchilikka jo'natishimiz mumkin
 
     @PastOrPresent
     private LocalDateTime created_date;
