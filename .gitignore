@@ -1,6 +1,5 @@
 HELP.md
-target/
-!target/*.jar
+
 !.mvn/wrapper/maven-wrapper.jar
 !**/src/main/**/target/
 !**/src/test/**/target/
@@ -32,7 +31,10 @@ build/
 
 ### VS Code ###
 .vscode/
+<<<<<<< HEAD
 
 ### Logs ###
 logs/**
 *.log
+=======
+>>>>>>> 6d3f25710866d681412667fd7c6e7bf5423f474e
