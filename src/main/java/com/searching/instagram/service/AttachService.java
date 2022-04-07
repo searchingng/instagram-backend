@@ -10,11 +10,16 @@ import com.searching.instagram.repository.AttachRepository;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Value;
+import org.springframework.core.io.Resource;
+import org.springframework.core.io.UrlResource;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.multipart.MultipartFile;
 
 import java.io.*;
+import java.net.MalformedURLException;
+import java.nio.file.Path;
+import java.nio.file.Paths;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 
@@ -126,6 +131,20 @@ public class AttachService {
             }
         }
         return new byte[0];
+    }
+
+    public Resource download(String name) {
+        int point = name.indexOf(".");
+        String id = name.substring(0, point);
+        AttachEntity entity = get(id);
+
+        Path path = Paths.get(entity.getPath());
+        try {
+            Resource resource = new UrlResource(path.toUri());
+            return resource;
+        } catch (MalformedURLException e) {
+            return download("default");
+        }
     }
 
 }
