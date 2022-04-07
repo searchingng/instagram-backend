@@ -1,6 +1,7 @@
 package com.searching.instagram.service;
 
 import com.searching.instagram.config.security.SecurityUtil;
+import com.searching.instagram.dto.LookDTO;
 import com.searching.instagram.dto.PostDTO;
 import com.searching.instagram.entity.AttachEntity;
 import com.searching.instagram.entity.PostEntity;
@@ -27,6 +28,7 @@ public class PostService {
 
     private final PostRepository postRepository;
     private final AttachService attachService;
+    private final LookServise lookServise;
 
     public PostDTO create(PostDTO dto) {
         ProfileEntity currentUser = SecurityUtil.getCurrentUser();
@@ -52,6 +54,9 @@ public class PostService {
     }
 
     public PostDTO getById(Long id) {
+        LookDTO view = new LookDTO();
+        view.setPostId(id);
+        lookServise.create(view);
         return toDTO(get(id));
     }
 

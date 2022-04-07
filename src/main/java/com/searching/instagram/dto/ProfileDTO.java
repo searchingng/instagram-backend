@@ -12,6 +12,7 @@ import org.hibernate.annotations.UpdateTimestamp;
 import javax.persistence.Column;
 import javax.persistence.EnumType;
 import javax.persistence.Enumerated;
+import javax.validation.constraints.NotNull;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
 
@@ -25,7 +26,11 @@ public class ProfileDTO {
     private LocalDateTime updatedAt;
 
     private String fullName;
+
+    @NotNull(message = "username is Required")
     private String username;
+
+    @NotNull(message = "password is Required")
     private String password;
     private String website;
     private String bio;
