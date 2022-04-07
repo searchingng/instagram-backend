@@ -49,7 +49,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                 .antMatchers("/profile/delete/**").hasAuthority("ADMIN_ROLE")
                 .antMatchers("/profile/**").hasAnyAuthority("ADMIN_ROLE", "USER_ROLE")
                 //attach
-                .antMatchers("/attach/**").hasAnyAuthority("ADMIN_ROLE", "USER_ROLE")
+                .antMatchers("/attach/upload/**", "/attach/get/**").hasAnyAuthority("ADMIN_ROLE", "USER_ROLE")
                 .antMatchers("/attach/open/**").permitAll()
                 //post
                 .antMatchers(HttpMethod.POST, "/post").hasAnyAuthority("ADMIN_ROLE", "USER_ROLE")
