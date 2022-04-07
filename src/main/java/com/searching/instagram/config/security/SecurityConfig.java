@@ -33,7 +33,8 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 
     @Override
     protected void configure(HttpSecurity http) throws Exception {
-        http.cors().and()
+        http
+                .cors().and()
                 .csrf()
                 .disable()
                 .authorizeRequests()
@@ -71,7 +72,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                         "/swagger-ui.html",
                         "/webjars/**").permitAll()
 //                .antMatchers("/v2/**").permitAll()
-//                .antMatchers("/swagger-ui/**").permitAll()
+                .antMatchers("/swagger-ui/**").permitAll()
 //                .antMatchers("/profile/**").hasAnyRole("ADMIN_ROLE", "USER_ROLE")
 //                .permitAll()
                 .anyRequest()
@@ -86,6 +87,8 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
         web.ignoring().mvcMatchers(HttpMethod.OPTIONS, "/**");
         web.ignoring().mvcMatchers("/swagger-ui.html/**", "/configuration/**", "/swagger-resources/**", "/v2/api-docs", "/webjars/**");
     }
+
+
 
     @Bean
     public PasswordEncoder getPasswordEncoder() {

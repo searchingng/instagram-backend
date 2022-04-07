@@ -23,7 +23,7 @@ import java.util.List;
 @RestController
 @RequestMapping("/post")
 @Api(tags = "post")
-@CrossOrigin
+@CrossOrigin(origins = "*", allowedHeaders = "*")
 public class PostController {
     @Autowired
     private PostService postService;

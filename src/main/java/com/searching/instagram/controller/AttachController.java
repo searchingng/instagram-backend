@@ -14,7 +14,7 @@ import org.springframework.web.multipart.MultipartFile;
 @RequestMapping("/attach")
 @RequiredArgsConstructor
 @Api(tags = "attach")
-@CrossOrigin
+@CrossOrigin(origins = "*", allowedHeaders = "*")
 public class AttachController {
 
     private final AttachService attachService;

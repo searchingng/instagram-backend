@@ -19,7 +19,7 @@ import java.util.List;
 @RestController
 @RequestMapping("/comment")
 @Api(tags = "comment")
-@CrossOrigin
+@CrossOrigin(origins = "*", allowedHeaders = "*")
 public class CommentController {
     @Autowired
     private CommentServise commentServise;

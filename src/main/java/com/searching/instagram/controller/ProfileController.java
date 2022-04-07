@@ -11,7 +11,7 @@ import org.springframework.web.bind.annotation.*;
 @RestController
 @RequestMapping("/profile")
 @RequiredArgsConstructor
-@CrossOrigin
+@CrossOrigin(origins = "*", allowedHeaders = "*")
 public class ProfileController {
 
     private final ProfileService profileService;

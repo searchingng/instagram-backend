@@ -17,7 +17,7 @@ import java.util.List;
 @RestController
 @RequestMapping("/save")
 @Api(tags = "save")
-@CrossOrigin
+@CrossOrigin(origins = "*", allowedHeaders = "*")
 public class SaveController {
     @Autowired
     private SaveServise saveServise;

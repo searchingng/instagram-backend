@@ -15,7 +15,7 @@ import java.util.List;
 @RestController
 @RequestMapping("/look")
 @Api(tags = "Look")
-@CrossOrigin
+@CrossOrigin(origins = "*", allowedHeaders = "*")
 public class LookController {
     @Autowired
     private LookServise lookServise;

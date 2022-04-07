@@ -13,7 +13,7 @@ import java.util.stream.Collectors;
 @RestController
 @RequestMapping("/following")
 @RequiredArgsConstructor
-@CrossOrigin
+@CrossOrigin(origins = "*", allowedHeaders = "*")
 public class FollowingController {
 
     private final FollowingService followingService;
