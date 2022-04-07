@@ -5,6 +5,8 @@ import com.searching.instagram.entity.AttachEntity;
 import com.searching.instagram.service.AttachService;
 import io.swagger.annotations.Api;
 import lombok.RequiredArgsConstructor;
+import org.springframework.core.io.Resource;
+import org.springframework.http.HttpHeaders;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -45,6 +47,14 @@ public class AttachController {
     @GetMapping(value = "/open/{id}", produces = {"image/*", MediaType.APPLICATION_OCTET_STREAM_VALUE})
     public ResponseEntity<byte[]> open(@PathVariable String id){
         return ResponseEntity.ok(attachService.getForOpen(id));
+    }
+
+    @GetMapping(value = "/download/{fileName:.+}")
+    public ResponseEntity<Resource> download(@PathVariable("fileName") String name){
+        Resource resource = attachService.download(name);
+        return ResponseEntity.ok().header(HttpHeaders.CONTENT_DISPOSITION,
+                        "attachment; fileName=\"" + resource.getFilename() + "\"")
+                .body(resource);
     }
 
 }
