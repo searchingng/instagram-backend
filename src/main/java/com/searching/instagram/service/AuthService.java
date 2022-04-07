@@ -6,6 +6,7 @@ import com.searching.instagram.dto.ProfileDTO;
 import com.searching.instagram.entity.ProfileEntity;
 import com.searching.instagram.entity.enums.ProfileStatus;
 import com.searching.instagram.entity.enums.Role;
+import com.searching.instagram.exceptions.BadRequestException;
 import com.searching.instagram.exceptions.UnauthorizedException;
 import com.searching.instagram.repository.ProfileRepository;
 import lombok.RequiredArgsConstructor;
@@ -21,16 +22,16 @@ public class AuthService {
 
     private final ProfileRepository profileRepository;
 
-    public ProfileDTO registration(ProfileDTO dto){
+    public ProfileDTO registration(ProfileDTO dto) {
 
-        if (profileRepository.existsByPhone(dto.getPhone())){
+        if (profileRepository.existsByPhone(dto.getPhone())) {
             log.warn("Phone is already registrated");
-            throw new RuntimeException("Phone is already registrated");
+            throw new BadRequestException("Phone is already registrated");
         }
 
-        if (profileRepository.existsByPhone(dto.getPhone())){
+        if (profileRepository.existsByPhone(dto.getPhone())) {
             log.warn("Username is already registrated");
-            throw new RuntimeException("Phone is already registrated");
+            throw new BadRequestException("Phone is already registrated");
         }
 
         String password = DigestUtils.md5Hex(dto.getPassword());
@@ -60,7 +61,7 @@ public class AuthService {
         return dto;
     }
 
-    public ProfileDTO login(AuthDTO dto){
+    public ProfileDTO login(AuthDTO dto) {
 
         String password = DigestUtils.md5Hex(dto.getPassword());
 
@@ -71,16 +72,16 @@ public class AuthService {
                     throw new UsernameNotFoundException("Username or Phone is not valid.");
                 });
 
-        if (!profile.getPassword().equals(password)){
+        if (!profile.getPassword().equals(password)) {
             throw new UnauthorizedException("Password is wrong!");
         }
 
         String jwt = JwtUtil.generateJwt(profile.getId(), profile.getUsername());
 
         ProfileDTO profileDTO = new ProfileDTO();
-                profileDTO.setFullName(profile.getFullName());
-                profileDTO.setUsername(profile.getUsername());
-                profileDTO.setJwt(jwt);
+        profileDTO.setFullName(profile.getFullName());
+        profileDTO.setUsername(profile.getUsername());
+        profileDTO.setJwt(jwt);
 
         log.debug("One user signed in: {}", profile);
         return profileDTO;

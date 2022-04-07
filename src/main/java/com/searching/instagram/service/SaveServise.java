@@ -51,7 +51,7 @@ public class SaveServise {
         Long profileId = SecurityUtil.getCurrentUser().getId();
         Optional<SaveEntity> save = saveRepository.findById(id);
 
-        if (save.isEmpty() || !save.get().getProfileId().equals(profileId)){
+        if (save.isEmpty() || !save.get().getProfileId().equals(profileId)) {
             throw new BadRequestException("This post is not saved");
         }
 

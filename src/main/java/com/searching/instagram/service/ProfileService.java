@@ -6,6 +6,7 @@ import com.searching.instagram.entity.ProfileEntity;
 import com.searching.instagram.entity.enums.ProfileGender;
 import com.searching.instagram.entity.enums.ProfileStatus;
 import com.searching.instagram.entity.enums.Role;
+import com.searching.instagram.exceptions.BadRequestException;
 import com.searching.instagram.exceptions.ItemNotFoundException;
 import com.searching.instagram.repository.ProfileRepository;
 import lombok.RequiredArgsConstructor;
@@ -53,12 +54,12 @@ public class ProfileService {
 
         if (profileRepository.existsByPhone(dto.getPhone())){
             log.warn("Phone is already registrated");
-            throw new RuntimeException("Phone is already registrated");
+            throw new BadRequestException("Phone is already registrated");
         }
 
         if (profileRepository.existsByUsername(dto.getUsername())){
             log.warn("Username is already registrated");
-            throw new RuntimeException("Phone is already registrated");
+            throw new BadRequestException("Phone is already registrated");
         }
 
         String password = DigestUtils.md5Hex(dto.getPassword());
