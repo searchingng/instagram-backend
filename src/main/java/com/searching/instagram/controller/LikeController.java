@@ -30,7 +30,7 @@ public class LikeController {
 
     @GetMapping("/delete/{postId}")
     @ApiOperation(value = "Delete method ", notes = "Bunda Like delete qilinadi postId bo'yicha ", nickname = "NickName")
-    public String DeleteLikeOrDislike( @PathVariable("postId") Long postId) {
+    public String DeleteLikeOrDislike(@PathVariable("postId") Long postId) {
         likeServise.deleteByPostId(postId);
         return "Succesfully Deleted";
     }
