@@ -24,10 +24,6 @@ import java.util.stream.Collectors;
 public class LookServise {
     @Autowired
     private LookRepository lookRepository;
-    @Autowired
-    private PostService postService;
-    @Autowired
-    private ProfileRepository profileRepository;
 
     public LookDTO create(LookDTO dto) {
         Long profileId = SecurityUtil.getCurrentUser().getId();
