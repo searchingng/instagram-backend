@@ -13,6 +13,7 @@ import java.util.stream.Collectors;
 @RestController
 @RequestMapping("/following")
 @RequiredArgsConstructor
+@CrossOrigin
 public class FollowingController {
 
     private final FollowingService followingService;

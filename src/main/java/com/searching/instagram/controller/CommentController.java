@@ -19,6 +19,7 @@ import java.util.List;
 @RestController
 @RequestMapping("/comment")
 @Api(tags = "comment")
+@CrossOrigin
 public class CommentController {
     @Autowired
     private CommentServise commentServise;

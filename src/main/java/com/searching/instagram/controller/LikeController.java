@@ -16,6 +16,7 @@ import java.util.List;
 @RestController
 @RequestMapping("/like")
 @Api(tags = "like")
+@CrossOrigin
 public class LikeController {
     @Autowired
     private LikeServise likeServise;
