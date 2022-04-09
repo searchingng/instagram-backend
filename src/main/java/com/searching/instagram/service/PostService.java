@@ -113,4 +113,29 @@ public class PostService {
         return postRepository.findByHashtagStartsWith(hashtag).stream()
                 .map(this::toDTO).collect(Collectors.toList());
     }
+
+    public List<PostDTO> getMyPosts() {
+        Long profileId = SecurityUtil.getCurrentUser().getId();
+        return getUserPosts(profileId);
+    }
+
+    public Integer getMyPostsCount() {
+        Long profileId = SecurityUtil.getCurrentUser().getId();
+        return getUserPostsCount(profileId);
+    }
+
+    public List<PostDTO> getUserPosts(Long profileId) {
+        if (profileId == null){
+            return new LinkedList<>();
+        }
+        return postRepository.findByProfileId(profileId).stream()
+                .map(this::toDTO).collect(Collectors.toList());
+    }
+
+    public Integer getUserPostsCount(Long profileId) {
+        if (profileId == null){
+            return 0;
+        }
+        return postRepository.countByProfileId(profileId);
+    }
 }

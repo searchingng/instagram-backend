@@ -19,7 +19,9 @@ import java.util.Optional;
 public interface PostRepository extends JpaRepository<PostEntity, Long>, JpaSpecificationExecutor<PostEntity> {
 
 
-    Optional<PostEntity> findByProfileId(Integer profileId);
+    List<PostEntity> findByProfileId(Long profileId);
+
+    int countByProfileId(Long profileId);
 
     Optional<PostEntity> findByContent(String content);
 

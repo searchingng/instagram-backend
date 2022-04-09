@@ -64,5 +64,29 @@ public class PostController {
         return ResponseEntity.ok(list);
     }
 
+    @GetMapping("/my")
+    public ResponseEntity<List<PostDTO>> getMyPosts() {
+        List<PostDTO> list = postService.getMyPosts();
+        return ResponseEntity.ok(list);
+    }
+
+    @GetMapping("/my/count")
+    public ResponseEntity<Integer> getMyPostsCount() {
+        Integer list = postService.getMyPostsCount();
+        return ResponseEntity.ok(list);
+    }
+
+    @GetMapping("/profile/{profileId}")
+    public ResponseEntity<List<PostDTO>> getMyPosts(@PathVariable("profileId") Long profileId) {
+        List<PostDTO> list = postService.getUserPosts(profileId);
+        return ResponseEntity.ok(list);
+    }
+
+    @GetMapping("/profile/count/{profileId}")
+    public ResponseEntity<Integer> getMyPostsCount(@PathVariable("profileId") Long profileId) {
+        Integer list = postService.getUserPostsCount(profileId);
+        return ResponseEntity.ok(list);
+    }
+
 
 }
