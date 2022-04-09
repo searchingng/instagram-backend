@@ -57,5 +57,12 @@ public class PostController {
         return ResponseEntity.ok(list);
     }
 
+    @GetMapping("/hashtag/{hashtag}")
+    @ApiOperation(value = "Post List method", notes = "Bunda bor postlar Olinadi  Userlar  ", nickname = "NickName")
+    public ResponseEntity<List<PostDTO>> getPostListByHashtag(@PathVariable("hashtag") String hashtag) {
+        List<PostDTO> list = postService.getByHashtag(hashtag);
+        return ResponseEntity.ok(list);
+    }
+
 
 }

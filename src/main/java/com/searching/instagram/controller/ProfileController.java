@@ -8,6 +8,8 @@ import org.springframework.data.domain.Pageable;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.List;
+
 @RestController
 @RequestMapping("/profile")
 @RequiredArgsConstructor
@@ -30,6 +32,11 @@ public class ProfileController {
     @GetMapping
     public ResponseEntity<Page<ProfileDTO>> getAll(Pageable pageable){
         return ResponseEntity.ok(profileService.getAll(pageable));
+    }
+
+    @GetMapping("/username/{username}")
+    public ResponseEntity<List<ProfileDTO>> getByUsername(@PathVariable("username") String username){
+        return ResponseEntity.ok(profileService.getByUsernameContains(username));
     }
 
     @DeleteMapping("/delete/{id}")

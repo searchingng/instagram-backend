@@ -16,7 +16,9 @@ import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
+import java.util.LinkedList;
 import java.util.List;
+import java.util.stream.Collectors;
 
 @Service
 @RequiredArgsConstructor
@@ -154,4 +156,10 @@ public class ProfileService {
 
     }
 
+    public List<ProfileDTO> getByUsernameContains(String username) {
+        if (username == null)
+            return new LinkedList<>();
+        return profileRepository.findByUsernameContaining("%" + username + "%")
+                .stream().map(this::toDto).collect(Collectors.toList());
+    }
 }

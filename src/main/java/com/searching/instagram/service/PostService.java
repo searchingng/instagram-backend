@@ -7,6 +7,7 @@ import com.searching.instagram.entity.AttachEntity;
 import com.searching.instagram.entity.PostEntity;
 import com.searching.instagram.entity.ProfileEntity;
 import com.searching.instagram.entity.base.BaseUUIDEntity;
+import com.searching.instagram.exceptions.BadRequestException;
 import com.searching.instagram.exceptions.ItemNotFoundException;
 import com.searching.instagram.repository.PostRepository;
 import com.searching.instagram.repository.ProfileRepository;
@@ -17,6 +18,7 @@ import org.springframework.data.domain.*;
 import org.springframework.data.jpa.domain.Specification;
 import org.springframework.stereotype.Service;
 
+import java.sql.SQLException;
 import java.time.LocalDateTime;
 import java.util.*;
 import java.util.stream.Collectors;
@@ -54,9 +56,13 @@ public class PostService {
     }
 
     public PostDTO getById(Long id) {
-        LookDTO view = new LookDTO();
-        view.setPostId(id);
-        lookServise.create(view);
+        try {
+            LookDTO view = new LookDTO();
+            view.setPostId(id);
+            lookServise.create(view);
+        } catch (RuntimeException e){
+
+        }
         return toDTO(get(id));
     }
 
@@ -68,7 +74,19 @@ public class PostService {
     public void deletePost(Long id) {
         if (id == null)
             return;
-        postRepository.deleteById(id);
+
+        try {
+            if (postRepository.existsById(id)) {
+                ProfileEntity currentUser = SecurityUtil.getCurrentUser();
+                PostEntity post = postRepository.getById(id);
+                if (!post.getProfileId().equals(currentUser.getId())){
+                    throw new BadRequestException("This is not your post");
+                }
+                postRepository.deleteById(id);
+            }
+        } catch (RuntimeException e){
+            throw new BadRequestException("Post not found with id = " + id);
+        }
     }
 
     public PostDTO toDTO(PostEntity entity) {
@@ -91,4 +109,8 @@ public class PostService {
         return dto;
     }
 
+    public List<PostDTO> getByHashtag(String hashtag) {
+        return postRepository.findByHashtagStartsWith(hashtag).stream()
+                .map(this::toDTO).collect(Collectors.toList());
+    }
 }
