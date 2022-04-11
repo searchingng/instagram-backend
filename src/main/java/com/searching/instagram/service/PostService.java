@@ -75,16 +75,20 @@ public class PostService {
         if (id == null)
             return;
 
-        try {
-            if (postRepository.existsById(id)) {
-                ProfileEntity currentUser = SecurityUtil.getCurrentUser();
-                PostEntity post = postRepository.getById(id);
-                if (!post.getProfileId().equals(currentUser.getId())){
-                    throw new BadRequestException("This is not your post");
-                }
-                postRepository.deleteById(id);
+        if (postRepository.existsById(id)) {
+            ProfileEntity currentUser = SecurityUtil.getCurrentUser();
+            PostEntity post = get(id);
+            if (!post.getProfileId().equals(currentUser.getId())){
+                throw new BadRequestException("This is not your post");
             }
-        } catch (RuntimeException e){
+            Iterator<AttachEntity> iterator = post.getAttachs().iterator();
+            while (iterator.hasNext()){
+                AttachEntity attach = iterator.next();
+                iterator.remove();
+                attachService.delete(attach);
+            }
+            postRepository.deleteById(id);
+        } else {
             throw new BadRequestException("Post not found with id = " + id);
         }
     }

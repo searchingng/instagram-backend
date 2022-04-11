@@ -5,6 +5,7 @@ import com.searching.instagram.dto.AttachDTO;
 import com.searching.instagram.entity.AttachEntity;
 import com.searching.instagram.entity.ProfileEntity;
 import com.searching.instagram.entity.enums.AttachType;
+import com.searching.instagram.exceptions.BadRequestException;
 import com.searching.instagram.exceptions.ItemNotFoundException;
 import com.searching.instagram.repository.AttachRepository;
 import lombok.RequiredArgsConstructor;
@@ -115,6 +116,23 @@ public class AttachService {
         }
 
         return toDto(entity);
+    }
+
+    public void deleteById(String id){
+        AttachEntity attach = get(id);
+        File file = new File(attach.getPath());
+        if (file.exists()){
+            file.delete();
+        }
+        attachRepository.delete(attach);
+    }
+
+    public void delete(AttachEntity attach){
+        File file = new File(attach.getPath());
+        if (file.exists()){
+            file.delete();
+        }
+        attachRepository.delete(attach);
     }
 
     public byte[] getForOpen(String id){
