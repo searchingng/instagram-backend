@@ -23,6 +23,7 @@ import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
+import java.util.List;
 
 @Service
 @Slf4j
@@ -137,6 +138,28 @@ public class AttachService {
 
     public byte[] getForOpen(String id){
         AttachEntity attach = get(id);
+
+        File file = new File(attach.getPath());
+        if (file.exists()){
+            InputStream inputStream = null;
+            try {
+                inputStream = new FileInputStream(file);
+                return inputStream.readAllBytes();
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+        }
+        return new byte[0];
+    }
+
+    public byte[] getAvatarByProfileId(Long profileId){
+        List<AttachEntity> attachs = attachRepository
+                .findByProfileIdAndTypeOrderByCreatedAtDesc(profileId, AttachType.AVATAR);
+
+        if (attachs.isEmpty() || attachs == null)
+            throw new BadRequestException("This user have not avatar picture");
+
+        AttachEntity attach = attachs.get(0);
 
         File file = new File(attach.getPath());
         if (file.exists()){

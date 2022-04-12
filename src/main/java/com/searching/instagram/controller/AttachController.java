@@ -57,4 +57,9 @@ public class AttachController {
                 .body(resource);
     }
 
+    @GetMapping(value = "/avatar/{profileId}", produces = {"image/*", MediaType.APPLICATION_OCTET_STREAM_VALUE})
+    public ResponseEntity<byte[]> getAvatar(@PathVariable("profileId") Long id){
+        return ResponseEntity.ok(attachService.getAvatarByProfileId(id));
+    }
+
 }
