@@ -4,6 +4,7 @@ import com.searching.instagram.config.security.SecurityUtil;
 import com.searching.instagram.dto.AttachDTO;
 import com.searching.instagram.entity.AttachEntity;
 import com.searching.instagram.entity.ProfileEntity;
+import com.searching.instagram.entity.base.BaseUUIDEntity;
 import com.searching.instagram.entity.enums.AttachType;
 import com.searching.instagram.exceptions.BadRequestException;
 import com.searching.instagram.exceptions.ItemNotFoundException;
@@ -24,6 +25,7 @@ import java.nio.file.Paths;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 import java.util.List;
+import java.util.stream.Collectors;
 
 @Service
 @Slf4j
@@ -126,6 +128,13 @@ public class AttachService {
             file.delete();
         }
         attachRepository.delete(attach);
+    }
+
+    public void deleteAll(){
+        List<String> attachs = attachRepository.findAll()
+                .stream().map(BaseUUIDEntity::getId).collect(Collectors.toList());
+
+        attachs.stream().forEach(this::deleteById);
     }
 
     public void delete(AttachEntity attach){

@@ -70,6 +70,8 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                 //save (saved posts)
                 .antMatchers("/save/**").hasAnyAuthority("ADMIN_ROLE", "USER_ROLE")
 
+                //admin
+                .antMatchers("/admin/**").hasAuthority("ADMIN_ROLE")
                 //swagger
                 .antMatchers("/v2/api-docs",
                         "/configuration/ui",

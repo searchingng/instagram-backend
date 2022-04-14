@@ -47,6 +47,10 @@ public class SaveServise {
         return dto;
     }
 
+    public void deleteAll(){
+        saveRepository.deleteAll();
+    }
+
     public void deleteSave(Long id) {
         Long profileId = SecurityUtil.getCurrentUser().getId();
         Optional<SaveEntity> save = saveRepository.findById(id);

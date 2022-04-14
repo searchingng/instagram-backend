@@ -43,6 +43,10 @@ public class LookServise {
         return dto;
     }
 
+    public void deleteAll(){
+        lookRepository.deleteAll();
+    }
+
     public LookEntity get(Long id) {
         return lookRepository.findById(id)
                 .orElseThrow(() -> new ItemNotFoundException("Item Not found"));

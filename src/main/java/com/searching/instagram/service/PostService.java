@@ -6,6 +6,7 @@ import com.searching.instagram.dto.PostDTO;
 import com.searching.instagram.entity.AttachEntity;
 import com.searching.instagram.entity.PostEntity;
 import com.searching.instagram.entity.ProfileEntity;
+import com.searching.instagram.entity.base.BaseEntity;
 import com.searching.instagram.entity.base.BaseUUIDEntity;
 import com.searching.instagram.exceptions.BadRequestException;
 import com.searching.instagram.exceptions.ItemNotFoundException;
@@ -91,6 +92,13 @@ public class PostService {
         } else {
             throw new BadRequestException("Post not found with id = " + id);
         }
+    }
+
+    public void deleteAll(){
+        List<Long> posts = postRepository.findAll()
+                .stream().map(BaseEntity::getId).collect(Collectors.toList());
+
+        posts.forEach(this::deletePost);
     }
 
     public PostDTO toDTO(PostEntity entity) {

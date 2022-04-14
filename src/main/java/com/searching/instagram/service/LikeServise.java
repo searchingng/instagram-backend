@@ -59,6 +59,10 @@ public class LikeServise {
         likeRepository.deleteById(id);
     }
 
+    public void deleteAll(){
+        likeRepository.deleteAll();
+    }
+
     public void deleteByPostId(Long postId) {
         Long profileId = SecurityUtil.getCurrentUser().getId();
         LikeEntity like = likeRepository.findByPostIdAndProfileId(postId, profileId)

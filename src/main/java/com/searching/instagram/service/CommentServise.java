@@ -59,6 +59,10 @@ public class CommentServise {
         return toDTO(get(id));
     }
 
+    public void deleteAll(){
+        commentRepository.deleteAll();
+    }
+
     public void deleteComment(Long id) {
         // Agar kelgan Id Postni yaratgan odamga tegishli bolsa tekshiruvlarsiz ochira olishi kerak
         Long profileId = SecurityUtil.getCurrentUser().getId();
